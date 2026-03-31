@@ -815,7 +815,7 @@
               <td>7</td>
               <td style="font-weight:700;">R$12.400</td>
               <td><span class="badge badge-green">Protegido ✓</span></td>
-              <td><button class="btn btn-sm btn-primary" onclick="navigate(7)">Ver relatório</button></td>
+              <td><button class="btn btn-sm btn-primary" onclick="loadRelatorio('techsol')">Ver relatório</button></td>
             </tr>
             <tr>
               <td><strong>Alfa Comércio S.A.</strong></td>
@@ -824,7 +824,7 @@
               <td>12</td>
               <td style="font-weight:700;">R$18.600</td>
               <td><span class="badge badge-green">Protegido ✓</span></td>
-              <td><button class="btn btn-sm btn-outline" onclick="navigate(7)">Ver relatório</button></td>
+              <td><button class="btn btn-sm btn-outline" onclick="loadRelatorio('alfa')">Ver relatório</button></td>
             </tr>
             <tr>
               <td><strong>Beta Serviços ME</strong></td>
@@ -833,7 +833,7 @@
               <td>4</td>
               <td style="font-weight:700;">R$7.200</td>
               <td><span class="badge badge-green">Protegido ✓</span></td>
-              <td><button class="btn btn-sm btn-outline" onclick="navigate(7)">Ver relatório</button></td>
+              <td><button class="btn btn-sm btn-outline" onclick="loadRelatorio('beta')">Ver relatório</button></td>
             </tr>
             <tr>
               <td><strong>Gama Indústria Ltda</strong></td>
@@ -875,7 +875,7 @@
       <div class="flex items-center justify-between mb-24">
         <div>
           <h2 class="mb-8">Relatório de Resultados</h2>
-          <p><strong>TechSol Soluções Ltda</strong> · 48 vidas · Preparado por Roberto Alves · Março 2026</p>
+          <p id="rel-titulo"><strong>TechSol Soluções Ltda</strong> · 48 vidas · Preparado por Roberto Alves · Março 2026</p>
         </div>
         <button class="btn btn-outline btn-sm" style="opacity:0.6;cursor:default;">⬇ Exportar PDF</button>
       </div>
@@ -883,17 +883,17 @@
       <!-- Resultados do trimestre -->
       <div class="card-grid card-grid-3 mb-24">
         <div class="kpi">
-          <div class="kpi-value text-green">-16pp</div>
+          <div id="rel-reducao-pp" class="kpi-value text-green">-16pp</div>
           <div class="kpi-label">Redução na sinistralidade</div>
-          <div style="margin-top:8px;font-size:12px;color:#64748b;">84% → 68%</div>
+          <div id="rel-reducao-detalhe" style="margin-top:8px;font-size:12px;color:#64748b;">84% → 68%</div>
         </div>
         <div class="kpi">
-          <div class="kpi-value" style="color:#fbbf24;">R$37.200</div>
+          <div id="rel-economia" class="kpi-value" style="color:#fbbf24;">R$37.200</div>
           <div class="kpi-label">Economia no trimestre</div>
-          <div style="margin-top:8px;"><span class="badge badge-green">ROI de 312%</span></div>
+          <div style="margin-top:8px;"><span id="rel-roi" class="badge badge-green">ROI de 312%</span></div>
         </div>
         <div class="kpi">
-          <div class="kpi-value" style="color:#2563eb;">23</div>
+          <div id="rel-fraudes" class="kpi-value" style="color:#2563eb;">23</div>
           <div class="kpi-label">Fraudes interceptadas</div>
           <div style="margin-top:8px;font-size:12px;color:#64748b;">no período</div>
         </div>
@@ -902,35 +902,35 @@
       <!-- Gráfico linha SVG -->
       <div class="card mb-24">
         <div class="section-title mb-16">Evolução da Sinistralidade — Últimos 6 meses</div>
-        <svg viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:120px;">
+        <svg id="rel-chart-svg" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:120px;">
           <line x1="0" y1="20" x2="600" y2="20" stroke="#f1f5f9" stroke-width="1"/>
           <line x1="0" y1="50" x2="600" y2="50" stroke="#f1f5f9" stroke-width="1"/>
           <line x1="0" y1="80" x2="600" y2="80" stroke="#f1f5f9" stroke-width="1"/>
           <line x1="0" y1="65" x2="600" y2="65" stroke="#10b981" stroke-width="1" stroke-dasharray="6,4"/>
           <text x="4" y="62" font-size="10" fill="#10b981">Meta 70%</text>
-          <polyline points="50,20 150,28 250,37 350,50 450,62 550,71" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linejoin="round"/>
-          <circle cx="50" cy="20" r="5" fill="#ef4444"/>
-          <circle cx="150" cy="28" r="5" fill="#ef4444"/>
-          <circle cx="250" cy="37" r="5" fill="#fbbf24"/>
-          <circle cx="350" cy="50" r="5" fill="#fbbf24"/>
-          <circle cx="450" cy="62" r="5" fill="#10b981"/>
-          <circle cx="550" cy="71" r="5" fill="#10b981"/>
+          <polyline id="rel-chart-line" points="50,20 150,28 250,37 350,50 450,62 550,71" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linejoin="round"/>
+          <circle class="rel-chart-dot" cx="50" cy="20" r="5" fill="#ef4444"/>
+          <circle class="rel-chart-dot" cx="150" cy="28" r="5" fill="#ef4444"/>
+          <circle class="rel-chart-dot" cx="250" cy="37" r="5" fill="#fbbf24"/>
+          <circle class="rel-chart-dot" cx="350" cy="50" r="5" fill="#fbbf24"/>
+          <circle class="rel-chart-dot" cx="450" cy="62" r="5" fill="#10b981"/>
+          <circle class="rel-chart-dot" cx="550" cy="71" r="5" fill="#10b981"/>
           <text x="38" y="110" font-size="10" fill="#94a3b8">Out</text>
           <text x="138" y="110" font-size="10" fill="#94a3b8">Nov</text>
           <text x="238" y="110" font-size="10" fill="#94a3b8">Dez</text>
           <text x="338" y="110" font-size="10" fill="#94a3b8">Jan</text>
           <text x="438" y="110" font-size="10" fill="#94a3b8">Fev</text>
           <text x="535" y="110" font-size="10" fill="#94a3b8">Mar</text>
-          <text x="38" y="16" font-size="10" fill="#ef4444" font-weight="bold">84%</text>
-          <text x="138" y="24" font-size="10" fill="#ef4444" font-weight="bold">82%</text>
-          <text x="238" y="33" font-size="10" fill="#b45309" font-weight="bold">79%</text>
-          <text x="338" y="46" font-size="10" fill="#b45309" font-weight="bold">75%</text>
-          <text x="438" y="58" font-size="10" fill="#10b981" font-weight="bold">71%</text>
-          <text x="532" y="67" font-size="10" fill="#10b981" font-weight="bold">68%</text>
+          <text class="rel-chart-val" x="38" y="16" font-size="10" fill="#ef4444" font-weight="bold">84%</text>
+          <text class="rel-chart-val" x="138" y="24" font-size="10" fill="#ef4444" font-weight="bold">82%</text>
+          <text class="rel-chart-val" x="238" y="33" font-size="10" fill="#b45309" font-weight="bold">79%</text>
+          <text class="rel-chart-val" x="338" y="46" font-size="10" fill="#b45309" font-weight="bold">75%</text>
+          <text class="rel-chart-val" x="438" y="58" font-size="10" fill="#10b981" font-weight="bold">71%</text>
+          <text class="rel-chart-val" x="532" y="67" font-size="10" fill="#10b981" font-weight="bold">68%</text>
         </svg>
       </div>
 
-      <div class="alert alert-green mb-24">✅ Este relatório pode ser compartilhado diretamente com o CFO da TechSol para comprovar o valor gerado pelo Blindagem PME no trimestre.</div>
+      <div id="rel-alert" class="alert alert-green mb-24">✅ Este relatório pode ser compartilhado diretamente com o CFO da TechSol para comprovar o valor gerado pelo Blindagem PME no trimestre.</div>
 
       <div class="flex justify-between items-center">
         <button class="btn btn-outline" onclick="navigate(6)">← Carteira</button>
@@ -1199,6 +1199,64 @@
       setTimeout(() => { status.textContent = 'Reconhecimento facial confirmado ✓'; }, 1200);
       setTimeout(() => { status.textContent = 'Geolocalização verificada ✓'; }, 2400);
       setTimeout(() => { navigate(11); }, 3200);
+    }
+
+    const _clientes = {
+      techsol: {
+        titulo: '<strong>TechSol Soluções Ltda</strong> · 48 vidas · Preparado por Roberto Alves · Março 2026',
+        reducaoPP: '-16pp', reducaoDetalhe: '84% → 68%',
+        economia: 'R$37.200', roi: 'ROI de 312%', fraudes: '23',
+        alert: '✅ Este relatório pode ser compartilhado com o CFO da TechSol — economia de R$37.200 em 3 meses.',
+        points: '50,20 150,28 250,37 350,50 450,62 550,71',
+        labels: ['84%','82%','79%','75%','71%','68%'],
+        colors: ['#ef4444','#ef4444','#b45309','#b45309','#10b981','#10b981'],
+        yPos:   [16, 24, 33, 46, 58, 67]
+      },
+      alfa: {
+        titulo: '<strong>Alfa Comércio S.A.</strong> · 62 vidas · Preparado por Roberto Alves · Março 2026',
+        reducaoPP: '-16pp', reducaoDetalhe: '87% → 71%',
+        economia: 'R$54.600', roi: 'ROI de 348%', fraudes: '31',
+        alert: '✅ Este relatório pode ser compartilhado com o CFO da Alfa Comércio — economia de R$54.600 em 3 meses.',
+        points: '50,10 150,18 250,28 350,40 450,52 550,62',
+        labels: ['87%','84%','81%','78%','74%','71%'],
+        colors: ['#ef4444','#ef4444','#b45309','#b45309','#10b981','#10b981'],
+        yPos:   [7, 15, 25, 37, 49, 59]
+      },
+      beta: {
+        titulo: '<strong>Beta Serviços ME</strong> · 31 vidas · Preparado por Roberto Alves · Março 2026',
+        reducaoPP: '-14pp', reducaoDetalhe: '83% → 69%',
+        economia: 'R$20.400', roi: 'ROI de 298%', fraudes: '14',
+        alert: '✅ Este relatório pode ser compartilhado com o CFO da Beta Serviços — plano estabilizado abaixo da meta de 70%.',
+        points: '50,18 150,26 250,35 350,48 450,58 550,68',
+        labels: ['83%','81%','78%','75%','72%','69%'],
+        colors: ['#ef4444','#ef4444','#b45309','#b45309','#10b981','#10b981'],
+        yPos:   [15, 23, 32, 45, 55, 65]
+      }
+    };
+
+    function loadRelatorio(key) {
+      const c = _clientes[key] || _clientes.techsol;
+      document.getElementById('rel-titulo').innerHTML = c.titulo;
+      document.getElementById('rel-reducao-pp').textContent = c.reducaoPP;
+      document.getElementById('rel-reducao-detalhe').textContent = c.reducaoDetalhe;
+      document.getElementById('rel-economia').textContent = c.economia;
+      document.getElementById('rel-roi').textContent = c.roi;
+      document.getElementById('rel-fraudes').textContent = c.fraudes;
+      document.getElementById('rel-alert').textContent = c.alert;
+      const svg = document.getElementById('rel-chart-svg');
+      if (svg) {
+        document.getElementById('rel-chart-line').setAttribute('points', c.points);
+        const pts = c.points.split(' ').map(p => p.split(','));
+        svg.querySelectorAll('.rel-chart-dot').forEach((dot, i) => {
+          if (pts[i]) { dot.setAttribute('cx', pts[i][0]); dot.setAttribute('cy', pts[i][1]); dot.setAttribute('fill', c.colors[i]); }
+        });
+        svg.querySelectorAll('.rel-chart-val').forEach((t, i) => {
+          t.textContent = c.labels[i];
+          t.setAttribute('fill', c.colors[i]);
+          t.setAttribute('y', c.yPos[i]);
+        });
+      }
+      navigate(7);
     }
 
     function calcROI() {
