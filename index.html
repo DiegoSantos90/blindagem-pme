@@ -759,21 +759,271 @@
        TELA 6 — Corretor Painel
   ══════════════════════════════════ -->
   <section id="screen-6" class="screen">
-    <!-- PLACEHOLDER: Task 7 -->
+    <div class="topbar">
+      <div class="topbar-logo">🛡️ Blindagem <span>PME</span> <span style="font-size:13px; color: rgba(255,255,255,0.5); font-weight:400; margin-left:8px;">| Painel Corretor</span></div>
+      <button class="topbar-back" onclick="navigate(2)">← Hub</button>
+    </div>
+
+    <div class="main-wide">
+      <div class="flex items-center justify-between mb-24">
+        <div>
+          <h2 class="mb-8">Minha Carteira de Clientes</h2>
+          <p>Olá, <strong>Roberto Alves</strong> · Corretor parceiro Blindagem PME · 4 clientes ativos</p>
+        </div>
+        <div class="badge badge-purple" style="font-size: 13px; padding: 6px 14px;">Corretor Parceiro ✓</div>
+      </div>
+
+      <!-- KPIs do corretor -->
+      <div class="card-grid card-grid-4 mb-24">
+        <div class="kpi">
+          <div class="kpi-value" style="color: #7c3aed;">4</div>
+          <div class="kpi-label">Clientes ativos</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value text-green">3</div>
+          <div class="kpi-label">Planos protegidos</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value" style="color: #ef4444;">1</div>
+          <div class="kpi-label">Em risco</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value" style="color: #fbbf24;">R$78k</div>
+          <div class="kpi-label">Economia gerada (trimestre)</div>
+        </div>
+      </div>
+
+      <!-- Tabela de clientes -->
+      <div class="card mb-24">
+        <table>
+          <thead>
+            <tr>
+              <th>Empresa</th>
+              <th>Vidas</th>
+              <th>Sinistralidade</th>
+              <th>Fraudes bloq.</th>
+              <th>Economia/mês</th>
+              <th>Status</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>TechSol Soluções Ltda</strong></td>
+              <td>48</td>
+              <td style="color:#10b981;font-weight:700;">68%</td>
+              <td>7</td>
+              <td style="font-weight:700;">R$12.400</td>
+              <td><span class="badge badge-green">Protegido ✓</span></td>
+              <td><button class="btn btn-sm btn-primary" onclick="navigate(7)">Ver relatório</button></td>
+            </tr>
+            <tr>
+              <td><strong>Alfa Comércio S.A.</strong></td>
+              <td>62</td>
+              <td style="color:#10b981;font-weight:700;">71%</td>
+              <td>12</td>
+              <td style="font-weight:700;">R$18.600</td>
+              <td><span class="badge badge-green">Protegido ✓</span></td>
+              <td><button class="btn btn-sm btn-outline" onclick="navigate(7)">Ver relatório</button></td>
+            </tr>
+            <tr>
+              <td><strong>Beta Serviços ME</strong></td>
+              <td>31</td>
+              <td style="color:#10b981;font-weight:700;">69%</td>
+              <td>4</td>
+              <td style="font-weight:700;">R$7.200</td>
+              <td><span class="badge badge-green">Protegido ✓</span></td>
+              <td><button class="btn btn-sm btn-outline" onclick="navigate(7)">Ver relatório</button></td>
+            </tr>
+            <tr>
+              <td><strong>Gama Indústria Ltda</strong></td>
+              <td>55</td>
+              <td style="color:#ef4444;font-weight:700;">83%</td>
+              <td>0</td>
+              <td style="font-weight:700;color:#94a3b8;">—</td>
+              <td><span class="badge badge-red">Em risco ⚠</span></td>
+              <td><button class="btn btn-sm btn-gold" onclick="navigate(8)">Gerar proposta</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-yellow mb-24">⚠ <strong>Gama Indústria Ltda</strong> está com sinistralidade de 83% e risco de reajuste de +20% em 60 dias. Oportunidade de converter para Blindagem PME.</div>
+
+      <div class="flex justify-between items-center">
+        <button class="btn btn-outline" onclick="navigate(2)">← Hub Central</button>
+        <button class="btn btn-primary" onclick="navigate(8)">Criar proposta para novo cliente →</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <strong>Blindagem PME</strong> · FIAP Google Challenge 2026<br/>
+      Diego Rodolfo dos Santos RM 360717 · Vitor Cidreira Garcia RM 360591 · Pedro Henrique de Aquino Ramim RM 360590 · Raphael Lopes Dantas RM 362263
+    </footer>
   </section>
 
   <!-- ══════════════════════════════════
        TELA 7 — Corretor Relatório
   ══════════════════════════════════ -->
   <section id="screen-7" class="screen">
-    <!-- PLACEHOLDER: Task 8 -->
+    <div class="topbar">
+      <div class="topbar-logo">🛡️ Blindagem <span>PME</span> <span style="font-size:13px; color: rgba(255,255,255,0.5); font-weight:400; margin-left:8px;">| Relatório do Cliente</span></div>
+      <button class="topbar-back" onclick="navigate(6)">← Carteira</button>
+    </div>
+
+    <div class="main">
+      <div class="flex items-center justify-between mb-24">
+        <div>
+          <h2 class="mb-8">Relatório de Resultados</h2>
+          <p><strong>TechSol Soluções Ltda</strong> · 48 vidas · Preparado por Roberto Alves · Março 2026</p>
+        </div>
+        <button class="btn btn-outline btn-sm" style="opacity:0.6;cursor:default;">⬇ Exportar PDF</button>
+      </div>
+
+      <!-- Resultados do trimestre -->
+      <div class="card-grid card-grid-3 mb-24">
+        <div class="kpi">
+          <div class="kpi-value text-green">-16pp</div>
+          <div class="kpi-label">Redução na sinistralidade</div>
+          <div style="margin-top:8px;font-size:12px;color:#64748b;">84% → 68%</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value" style="color:#fbbf24;">R$37.200</div>
+          <div class="kpi-label">Economia no trimestre</div>
+          <div style="margin-top:8px;"><span class="badge badge-green">ROI de 312%</span></div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value" style="color:#2563eb;">23</div>
+          <div class="kpi-label">Fraudes interceptadas</div>
+          <div style="margin-top:8px;font-size:12px;color:#64748b;">no período</div>
+        </div>
+      </div>
+
+      <!-- Gráfico linha SVG -->
+      <div class="card mb-24">
+        <div class="section-title mb-16">Evolução da Sinistralidade — Últimos 6 meses</div>
+        <svg viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:120px;">
+          <line x1="0" y1="20" x2="600" y2="20" stroke="#f1f5f9" stroke-width="1"/>
+          <line x1="0" y1="50" x2="600" y2="50" stroke="#f1f5f9" stroke-width="1"/>
+          <line x1="0" y1="80" x2="600" y2="80" stroke="#f1f5f9" stroke-width="1"/>
+          <line x1="0" y1="65" x2="600" y2="65" stroke="#10b981" stroke-width="1" stroke-dasharray="6,4"/>
+          <text x="4" y="62" font-size="10" fill="#10b981">Meta 70%</text>
+          <polyline points="50,20 150,28 250,37 350,50 450,62 550,71" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linejoin="round"/>
+          <circle cx="50" cy="20" r="5" fill="#ef4444"/>
+          <circle cx="150" cy="28" r="5" fill="#ef4444"/>
+          <circle cx="250" cy="37" r="5" fill="#fbbf24"/>
+          <circle cx="350" cy="50" r="5" fill="#fbbf24"/>
+          <circle cx="450" cy="62" r="5" fill="#10b981"/>
+          <circle cx="550" cy="71" r="5" fill="#10b981"/>
+          <text x="38" y="110" font-size="10" fill="#94a3b8">Out</text>
+          <text x="138" y="110" font-size="10" fill="#94a3b8">Nov</text>
+          <text x="238" y="110" font-size="10" fill="#94a3b8">Dez</text>
+          <text x="338" y="110" font-size="10" fill="#94a3b8">Jan</text>
+          <text x="438" y="110" font-size="10" fill="#94a3b8">Fev</text>
+          <text x="535" y="110" font-size="10" fill="#94a3b8">Mar</text>
+          <text x="38" y="16" font-size="10" fill="#ef4444" font-weight="bold">84%</text>
+          <text x="138" y="24" font-size="10" fill="#ef4444" font-weight="bold">82%</text>
+          <text x="238" y="33" font-size="10" fill="#b45309" font-weight="bold">79%</text>
+          <text x="338" y="46" font-size="10" fill="#b45309" font-weight="bold">75%</text>
+          <text x="438" y="58" font-size="10" fill="#10b981" font-weight="bold">71%</text>
+          <text x="532" y="67" font-size="10" fill="#10b981" font-weight="bold">68%</text>
+        </svg>
+      </div>
+
+      <div class="alert alert-green mb-24">✅ Este relatório pode ser compartilhado diretamente com o CFO da TechSol para comprovar o valor gerado pelo Blindagem PME no trimestre.</div>
+
+      <div class="flex justify-between items-center">
+        <button class="btn btn-outline" onclick="navigate(6)">← Carteira</button>
+        <button class="btn btn-primary" onclick="navigate(8)">Criar proposta para novo cliente →</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <strong>Blindagem PME</strong> · FIAP Google Challenge 2026<br/>
+      Diego Rodolfo dos Santos RM 360717 · Vitor Cidreira Garcia RM 360591 · Pedro Henrique de Aquino Ramim RM 360590 · Raphael Lopes Dantas RM 362263
+    </footer>
   </section>
 
   <!-- ══════════════════════════════════
        TELA 8 — Corretor Proposta
   ══════════════════════════════════ -->
   <section id="screen-8" class="screen">
-    <!-- PLACEHOLDER: Task 9 -->
+    <div class="topbar">
+      <div class="topbar-logo">🛡️ Blindagem <span>PME</span> <span style="font-size:13px; color: rgba(255,255,255,0.5); font-weight:400; margin-left:8px;">| Simulador de Proposta</span></div>
+      <button class="topbar-back" onclick="navigate(6)">← Carteira</button>
+    </div>
+
+    <div class="main">
+      <div class="mb-24">
+        <h2 class="mb-8">Simulador de ROI</h2>
+        <p>Mostre ao prospect quanto ele pode economizar com o Blindagem PME</p>
+      </div>
+
+      <div class="card-grid card-grid-2 mb-24" style="gap: 24px;">
+        <!-- Inputs -->
+        <div class="card">
+          <h3 class="mb-16">Dados do Prospect</h3>
+
+          <div class="mb-16">
+            <label style="display:block; font-size:13px; font-weight:600; color:#475569; margin-bottom:8px;">
+              Número de Vidas: <span id="vidas-val" style="color:#10b981;">50</span>
+            </label>
+            <input id="slider-vidas" type="range" min="30" max="99" value="50" oninput="calcROI()"
+              style="width:100%; accent-color: #10b981; cursor:pointer; height:6px;">
+            <div class="flex justify-between" style="font-size:11px;color:#94a3b8;margin-top:4px;">
+              <span>30 vidas</span><span>99 vidas</span>
+            </div>
+          </div>
+
+          <div class="mb-16">
+            <label style="display:block; font-size:13px; font-weight:600; color:#475569; margin-bottom:8px;">
+              Sinistralidade Atual: <span id="sinistralidade-val" style="color:#ef4444;">80%</span>
+            </label>
+            <input id="slider-sinistralidade" type="range" min="70" max="95" value="80" oninput="calcROI()"
+              style="width:100%; accent-color: #ef4444; cursor:pointer; height:6px;">
+            <div class="flex justify-between" style="font-size:11px;color:#94a3b8;margin-top:4px;">
+              <span>70%</span><span>95%</span>
+            </div>
+          </div>
+
+          <div style="background:#f8fafc;border-radius:8px;padding:16px;font-size:13px;color:#64748b;line-height:1.8;">
+            <div>📋 Prêmio estimado: <strong style="color:#1e293b;">R$ <span id="premio-val">34.000</span>/mês</strong></div>
+            <div>🎯 Meta de sinistralidade: <strong style="color:#10b981;">68%</strong></div>
+          </div>
+        </div>
+
+        <!-- Resultado -->
+        <div class="card" style="background: linear-gradient(160deg, #0f172a, #065f46); border: none; color: white;">
+          <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:rgba(255,255,255,0.6);margin-bottom:20px;">Resultado Estimado</div>
+
+          <div class="mb-16">
+            <div style="font-size:13px;color:rgba(255,255,255,0.6);">Economia anual estimada</div>
+            <div id="economia-estimada" style="font-size:40px;font-weight:900;color:#fbbf24;line-height:1.1;">R$ 48.000</div>
+          </div>
+
+          <div class="mb-24">
+            <div style="font-size:13px;color:rgba(255,255,255,0.6);">ROI no primeiro ano</div>
+            <div id="roi-estimado" style="font-size:40px;font-weight:900;color:#10b981;line-height:1.1;">280%</div>
+          </div>
+
+          <button class="btn btn-gold w-full" style="justify-content:center;font-size:16px;" onclick="alert('Proposta enviada! (simulação)')">
+            📧 Enviar Proposta ao Prospect
+          </button>
+        </div>
+      </div>
+
+      <div class="alert alert-green mb-24">💡 Dica: Clientes com sinistralidade acima de 78% têm maior urgência de solução. Foque a abordagem no risco de reajuste de prêmio.</div>
+
+      <div class="flex justify-between items-center">
+        <button class="btn btn-outline" onclick="navigate(6)">← Carteira</button>
+        <button class="btn btn-dark" onclick="navigate(2)">← Hub Central</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <strong>Blindagem PME</strong> · FIAP Google Challenge 2026<br/>
+      Diego Rodolfo dos Santos RM 360717 · Vitor Cidreira Garcia RM 360591 · Pedro Henrique de Aquino Ramim RM 360590 · Raphael Lopes Dantas RM 362263
+    </footer>
   </section>
 
   <!-- ══════════════════════════════════
