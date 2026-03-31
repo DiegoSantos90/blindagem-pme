@@ -1030,21 +1030,152 @@
        TELA 9 — Funcionário Login
   ══════════════════════════════════ -->
   <section id="screen-9" class="screen">
-    <!-- PLACEHOLDER: Task 10 -->
+    <div class="topbar">
+      <div class="topbar-logo">🛡️ Blindagem <span>PME</span></div>
+      <button class="topbar-back" onclick="navigate(2)">← Hub</button>
+    </div>
+
+    <div class="mobile-frame-wrap">
+      <div class="mobile-frame">
+        <div class="mobile-status-bar">
+          <span>9:41</span>
+          <span>📶 ●●●●</span>
+        </div>
+        <div class="mobile-content" style="background: #0f172a;">
+          <!-- Logo -->
+          <div style="text-align:center;margin-bottom:32px;margin-top:16px;">
+            <div style="font-size:48px;margin-bottom:8px;">🛡️</div>
+            <div style="font-size:22px;font-weight:900;color:#10b981;">Blindagem PME</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;">Seu plano protegido</div>
+          </div>
+
+          <!-- Formulário -->
+          <div style="margin-bottom:8px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);">Nome do funcionário</div>
+          <input class="mobile-input" id="nome-funcionario" type="text" placeholder="Ex: Ana Silva" value="Ana Silva"/>
+
+          <div style="margin-bottom:8px;margin-top:12px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);">Empresa</div>
+          <input class="mobile-input" type="text" placeholder="Sua empresa" value="TechSol Soluções Ltda" readonly style="opacity:0.7;cursor:default;"/>
+
+          <div style="margin-top:16px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);border-radius:10px;padding:12px;font-size:12px;color:rgba(255,255,255,0.6);text-align:center;">
+            Seu plano de saúde está protegido pelo Blindagem PME
+          </div>
+
+          <button class="mobile-btn" onclick="navigate(10)" style="margin-top:24px;">
+            Entrar →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <strong>Blindagem PME</strong> · FIAP Google Challenge 2026<br/>
+      Diego Rodolfo dos Santos RM 360717 · Vitor Cidreira Garcia RM 360591 · Pedro Henrique de Aquino Ramim RM 360590 · Raphael Lopes Dantas RM 362263
+    </footer>
   </section>
 
   <!-- ══════════════════════════════════
        TELA 10 — Check-in Biométrico
   ══════════════════════════════════ -->
   <section id="screen-10" class="screen">
-    <!-- PLACEHOLDER: Task 11 -->
+    <div class="topbar">
+      <div class="topbar-logo">🛡️ Blindagem <span>PME</span></div>
+      <button class="topbar-back" onclick="navigate(9)">← Voltar</button>
+    </div>
+
+    <div class="mobile-frame-wrap">
+      <div class="mobile-frame">
+        <div class="mobile-status-bar">
+          <span>9:52</span>
+          <span>📶 ●●●●</span>
+        </div>
+        <div class="mobile-content" style="background: #0f172a; align-items: center; text-align: center;">
+          <div style="font-size:14px;font-weight:700;color:#10b981;margin-bottom:4px;margin-top:8px;">CHECK-IN NA CLÍNICA</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:32px;">📍 Clínica São Lucas · Av. Paulista, 1000</div>
+
+          <!-- Spinner / ícone check-in -->
+          <div id="checkin-spinner" style="display:none;align-items:center;justify-content:center;width:80px;height:80px;margin:0 auto 24px;">
+            <div class="spinner"></div>
+          </div>
+          <div id="checkin-icon" style="font-size:72px;margin-bottom:24px;">🤳</div>
+
+          <div style="font-size:16px;font-weight:700;color:white;margin-bottom:8px;">Confirmar presença</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:32px;line-height:1.5;">
+            Olhe para a câmera para confirmar<br/>sua identidade na clínica
+          </div>
+
+          <div id="checkin-status" style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:24px;min-height:20px;"></div>
+
+          <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:12px;font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:24px;">
+            <div>👨‍⚕️ Dr. Carlos Mendes — Clínico Geral</div>
+            <div>📅 Hoje · 14h00</div>
+          </div>
+
+          <button id="checkin-btn" class="mobile-btn" onclick="simulateCheckin()">
+            🔒 Iniciar verificação biométrica
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <strong>Blindagem PME</strong> · FIAP Google Challenge 2026<br/>
+      Diego Rodolfo dos Santos RM 360717 · Vitor Cidreira Garcia RM 360591 · Pedro Henrique de Aquino Ramim RM 360590 · Raphael Lopes Dantas RM 362263
+    </footer>
   </section>
 
   <!-- ══════════════════════════════════
        TELA 11 — Confirmação
   ══════════════════════════════════ -->
   <section id="screen-11" class="screen">
-    <!-- PLACEHOLDER: Task 12 -->
+    <div class="topbar">
+      <div class="topbar-logo">🛡️ Blindagem <span>PME</span></div>
+      <button class="topbar-back" onclick="navigate(2)">← Hub</button>
+    </div>
+
+    <div class="mobile-frame-wrap">
+      <div class="mobile-frame">
+        <div class="mobile-status-bar">
+          <span>9:52</span>
+          <span>📶 ●●●●</span>
+        </div>
+        <div class="mobile-content" style="background: #0f172a; align-items: center; text-align: center; justify-content: center;">
+
+          <!-- Check animado -->
+          <div class="check-anim" style="margin: 0 auto 24px;">✓</div>
+
+          <div style="font-size:22px;font-weight:900;color:white;margin-bottom:8px;">Atendimento validado!</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:32px;line-height:1.6;">
+            Sua presença foi confirmada.<br/>Seu plano está protegido.
+          </div>
+
+          <!-- Detalhes -->
+          <div style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);border-radius:14px;padding:20px;width:100%;text-align:left;margin-bottom:32px;">
+            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#10b981;margin-bottom:12px;">Detalhes do atendimento</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.7);line-height:2;">
+              <div>🏥 Clínica São Lucas</div>
+              <div>📍 Av. Paulista, 1000 — Bela Vista</div>
+              <div>👨‍⚕️ Dr. Carlos Mendes — Clínico Geral</div>
+              <div>🕐 Hoje, 14h32</div>
+              <div>✅ Biometria confirmada</div>
+              <div>✅ Geolocalização verificada</div>
+            </div>
+          </div>
+
+          <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:12px;font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:24px;text-align:center;">
+            🛡️ Proteção ativa — seu plano não corre risco
+          </div>
+
+          <button class="mobile-btn" onclick="navigate(2)" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+            ← Voltar ao início
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <strong>Blindagem PME</strong> · FIAP Google Challenge 2026<br/>
+      Diego Rodolfo dos Santos RM 360717 · Vitor Cidreira Garcia RM 360591 · Pedro Henrique de Aquino Ramim RM 360590 · Raphael Lopes Dantas RM 362263
+    </footer>
   </section>
 
   <script>
