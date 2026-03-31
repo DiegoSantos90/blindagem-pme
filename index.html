@@ -332,14 +332,126 @@
        TELA 1 — Landing Page
   ══════════════════════════════════ -->
   <section id="screen-1" class="screen active">
-    <!-- PLACEHOLDER: Task 2 -->
+    <!-- Hero -->
+    <div style="background: linear-gradient(160deg, #0f172a 0%, #065f46 100%); flex: 1; display: flex; flex-direction: column;">
+      <nav style="padding: 20px 32px; display: flex; align-items: center; justify-content: space-between;">
+        <div style="font-size: 22px; font-weight: 900; color: #10b981; letter-spacing: -1px;">
+          🛡️ Blindagem <span style="color: #fbbf24;">PME</span>
+        </div>
+        <div style="font-size: 12px; color: rgba(255,255,255,0.5);">FIAP · Google Challenge 2026</div>
+      </nav>
+
+      <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; text-align: center; max-width: 760px; margin: 0 auto;">
+        <div style="background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); border-radius: 99px; padding: 6px 18px; font-size: 13px; font-weight: 700; color: #10b981; margin-bottom: 24px; display: inline-block;">
+          HealthTech · Anti-Fraude · SaaS B2B
+        </div>
+        <h1 style="color: white; font-size: 44px; font-weight: 900; line-height: 1.1; margin-bottom: 20px;">
+          A blindagem tecnológica que protege o plano de saúde da sua empresa
+        </h1>
+        <p style="font-size: 18px; color: rgba(255,255,255,0.7); max-width: 560px; line-height: 1.6; margin-bottom: 40px;">
+          PMEs perdem até 20% do custo do plano para fraudes invisíveis. O Blindagem PME intercepta automaticamente — sem burocracia, sem atrito.
+        </p>
+
+        <!-- KPIs de impacto -->
+        <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 48px; width: 100%; max-width: 600px;">
+          <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 20px;">
+            <div style="font-size: 30px; font-weight: 900; color: #fbbf24; line-height: 1;">R$34bi</div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px;">perdidos em fraudes/ano</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 20px;">
+            <div style="font-size: 30px; font-weight: 900; color: #fbbf24; line-height: 1;">85%</div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px;">sinistralidade média das PMEs</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 20px;">
+            <div style="font-size: 30px; font-weight: 900; color: #fbbf24; line-height: 1;">+20%</div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px;">ajuste abusivo de prêmio</div>
+          </div>
+        </div>
+
+        <button class="btn btn-gold btn-lg" onclick="navigate(2)">Conheça a solução →</button>
+      </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      <strong>Blindagem PME</strong> · FIAP Google Challenge 2026<br/>
+      Diego Rodolfo dos Santos RM 360717 · Vitor Cidreira Garcia RM 360591 · Pedro Henrique de Aquino Ramim RM 360590 · Raphael Lopes Dantas RM 362263
+    </footer>
   </section>
 
   <!-- ══════════════════════════════════
        TELA 2 — Hub Central
   ══════════════════════════════════ -->
   <section id="screen-2" class="screen">
-    <!-- PLACEHOLDER: Task 3 -->
+    <div class="topbar">
+      <div class="topbar-logo">🛡️ Blindagem <span>PME</span></div>
+      <button class="topbar-back" onclick="navigate(1)">← Início</button>
+    </div>
+
+    <div class="main">
+      <div class="mb-32" style="text-align: center;">
+        <h2 class="mb-8">Como o Blindagem PME funciona?</h2>
+        <p style="max-width: 540px; margin: 0 auto;">Uma camada invisível de proteção que atua no backend — sem burocracia para RH ou funcionários.</p>
+      </div>
+
+      <!-- 4 componentes da solução -->
+      <div class="card-grid card-grid-4 mb-32" style="gap:12px;">
+        <div class="solucao-card">
+          <div style="font-size: 28px; margin-bottom: 10px;">🤖</div>
+          <h4>Gestor Virtual</h4>
+          <p>Monitora o uso do plano automaticamente e bloqueia compartilhamento de credenciais.</p>
+        </div>
+        <div class="solucao-card">
+          <div style="font-size: 28px; margin-bottom: 10px;">📍</div>
+          <h4>Biometria & Geo</h4>
+          <p>Confirma presença física na clínica. Sem check-in = sem validação de atendimento.</p>
+        </div>
+        <div class="solucao-card">
+          <div style="font-size: 28px; margin-bottom: 10px;">🔍</div>
+          <h4>Pré-auditoria</h4>
+          <p>Bloqueia reembolsos fraudulentos antes de chegarem à operadora. Dinheiro não sai.</p>
+        </div>
+        <div class="solucao-card">
+          <div style="font-size: 28px; margin-bottom: 10px;">⚙️</div>
+          <h4>Integração Sem Atrito</h4>
+          <p>Roda 100% no backend. Nenhum esforço adicional para o RH ou gestores.</p>
+        </div>
+      </div>
+
+      <hr class="divider"/>
+
+      <div class="mb-16" style="text-align: center;">
+        <h3 class="mb-8">Escolha uma perspectiva para explorar</h3>
+        <p>Cada perfil vive uma experiência diferente com o Blindagem PME</p>
+      </div>
+
+      <!-- 3 personas -->
+      <div class="card-grid card-grid-3" style="gap: 20px;">
+        <div class="persona-card" onclick="navigate(3)">
+          <div class="persona-icon">👔</div>
+          <div class="persona-title">CFO / Sócio de PME</div>
+          <div class="persona-desc">Acompanha o dashboard de sinistralidade, vê fraudes bloqueadas e comprova a economia gerada no plano de saúde.</div>
+          <button class="btn btn-primary w-full" style="justify-content: center;">Explorar como CFO →</button>
+        </div>
+        <div class="persona-card" onclick="navigate(6)">
+          <div class="persona-icon">🤝</div>
+          <div class="persona-title">Corretor de Saúde</div>
+          <div class="persona-desc">Gerencia sua carteira de clientes PME, gera relatórios de resultado e cria propostas comerciais com ROI simulado.</div>
+          <button class="btn btn-primary w-full" style="justify-content: center;">Explorar como Corretor →</button>
+        </div>
+        <div class="persona-card" onclick="navigate(9)">
+          <div class="persona-icon">👤</div>
+          <div class="persona-title">Funcionário / Beneficiário</div>
+          <div class="persona-desc">Usa o app mobile para validar presença na clínica com biometria e geolocalização. Experiência simples e transparente.</div>
+          <button class="btn btn-primary w-full" style="justify-content: center;">Explorar como Funcionário →</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <strong>Blindagem PME</strong> · FIAP Google Challenge 2026<br/>
+      Diego Rodolfo dos Santos RM 360717 · Vitor Cidreira Garcia RM 360591 · Pedro Henrique de Aquino Ramim RM 360590 · Raphael Lopes Dantas RM 362263
+    </footer>
   </section>
 
   <!-- ══════════════════════════════════
