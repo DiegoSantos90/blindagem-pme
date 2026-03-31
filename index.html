@@ -434,8 +434,12 @@
       document.getElementById('vidas-val').textContent = vidas;
       document.getElementById('sinistralidade-val').textContent = sinistralidade + '%';
       const premioMensal = vidas * 680;
-      document.getElementById('economia-estimada').textContent = 'R$ ' + Math.round(premioMensal * 12 * ((sinistralidade - 68) / 100) * 0.7).toLocaleString('pt-BR');
-      document.getElementById('roi-estimado').textContent = Math.max(0, Math.round(((Math.round(premioMensal * 12 * ((sinistralidade - 68) / 100) * 0.7) - vidas * 120 * 12) / (vidas * 120 * 12)) * 100)) + '%';
+      document.getElementById('premio-val').textContent = premioMensal.toLocaleString('pt-BR');
+      const economiaAnual = Math.max(0, Math.round(premioMensal * 12 * ((sinistralidade - 68) / 100) * 0.7));
+      const custoAnual = vidas * 120 * 12;
+      const roi = economiaAnual > 0 ? Math.round(((economiaAnual - custoAnual) / custoAnual) * 100) : 0;
+      document.getElementById('economia-estimada').textContent = 'R$ ' + economiaAnual.toLocaleString('pt-BR');
+      document.getElementById('roi-estimado').textContent = Math.max(0, roi) + '%';
     }
   </script>
 
