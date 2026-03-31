@@ -1214,6 +1214,14 @@
       document.getElementById('economia-estimada').textContent = 'R$ ' + economiaAnual.toLocaleString('pt-BR');
       document.getElementById('roi-estimado').textContent = Math.max(0, roi) + '%';
     }
+
+    // Inicializa valores do simulador ao exibir a tela 8
+    const _screen8 = document.getElementById('screen-8');
+    if (_screen8) {
+      new MutationObserver(() => {
+        if (_screen8.classList.contains('active')) calcROI();
+      }).observe(_screen8, { attributes: true, attributeFilter: ['class'] });
+    }
   </script>
 
 </body>
