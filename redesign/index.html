@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🛡️ Blindagem PME — Protótipo v2</title>
+  <style>
+    /* CSS goes here in Task 2 */
+  </style>
+</head>
+<body>
+
+  <!-- ── SIDEBAR ── -->
+  <aside id="sidebar">
+    <div class="sidebar-brand">🛡️ Blindagem <span>PME</span></div>
+
+    <!-- Profile switcher tabs -->
+    <div class="sidebar-tabs">
+      <button class="sidebar-tab active" id="tab-cfo"      onclick="switchProfile('cfo')">👔 CFO</button>
+      <button class="sidebar-tab"        id="tab-corretor" onclick="switchProfile('corretor')">🤝 Corretor</button>
+      <button class="sidebar-tab"        id="tab-paciente" onclick="switchProfile('paciente')">📱 Paciente</button>
+    </div>
+
+    <!-- Dynamic nav items -->
+    <nav id="sidebar-nav"></nav>
+
+    <!-- User card (bottom) -->
+    <div class="sidebar-user">
+      <div class="user-avatar" id="user-avatar">MA</div>
+      <div class="user-info">
+        <div class="user-name" id="user-name">Maria Andrade</div>
+        <div class="user-role" id="user-role">CFO · TechSol</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN AREA ── -->
+  <div id="main-area">
+
+    <!-- Topbar -->
+    <div class="main-topbar">
+      <h1 id="page-title">Dashboard</h1>
+      <div id="profile-badge" class="profile-badge">👔 CFO · TechSol</div>
+    </div>
+
+    <!-- Content panels (one active at a time) -->
+    <div id="content-area">
+
+      <!-- CFO panels -->
+      <div class="panel" id="cfo-dashboard"><!-- Task 4a --></div>
+      <div class="panel" id="cfo-auditorias"><!-- Task 4b --></div>
+      <div class="panel" id="cfo-relatorio"><!-- Task 4c --></div>
+
+      <!-- Corretor panels -->
+      <div class="panel" id="corretor-carteira"><!-- Task 5a --></div>
+      <div class="panel" id="corretor-relatorio"><!-- Task 5b --></div>
+      <div class="panel" id="corretor-simulador"><!-- Task 5c --></div>
+
+      <!-- Paciente panel -->
+      <div class="panel" id="paciente-checkin"><!-- Task 6 --></div>
+
+    </div><!-- /#content-area -->
+
+    <footer class="footer">
+      <strong>Blindagem PME</strong> · FIAP Google Challenge 2026 ·
+      Diego Rodolfo dos Santos RM 360717 · Vitor Cidreira Garcia RM 360591 ·
+      Pedro Henrique de Aquino Ramim RM 360590 · Raphael Lopes Dantas RM 362263
+    </footer>
+
+  </div><!-- /#main-area -->
+
+  <script>
+    /* JS goes here in Tasks 3 and 7 */
+  </script>
+
+</body>
+</html>
