@@ -389,17 +389,475 @@
     <div id="content-area">
 
       <!-- CFO panels -->
-      <div class="panel" id="cfo-dashboard"><!-- Task 4a --></div>
-      <div class="panel" id="cfo-auditorias"><!-- Task 4b --></div>
-      <div class="panel" id="cfo-relatorio"><!-- Task 4c --></div>
+      <div class="panel" id="cfo-dashboard">
+      <div class="flex items-center justify-between mb-24">
+        <div>
+          <h2 class="mb-8 text-white">Dashboard de Saúde do Plano</h2>
+          <p class="text-muted">Empresa: <strong class="text-white">TechSol Soluções Ltda</strong> · 48 vidas · Plano Amil PME Plus</p>
+        </div>
+        <span class="badge badge-green" style="font-size:13px;padding:6px 14px;">● Plano Protegido</span>
+      </div>
+
+      <div class="card-grid card-grid-4 mb-24">
+        <div class="kpi">
+          <div class="kpi-value text-green">68%</div>
+          <div class="kpi-label">Sinistralidade atual</div>
+          <div style="margin-top:8px;"><span class="badge badge-green">↓ Abaixo da meta (70%)</span></div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value" style="color:#fbbf24;">R$12.400</div>
+          <div class="kpi-label">Economia este mês</div>
+          <div style="margin-top:8px;"><span class="badge badge-yellow">vs. mês anterior</span></div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value" style="color:#60a5fa;">7</div>
+          <div class="kpi-label">Fraudes bloqueadas</div>
+          <div style="margin-top:8px;"><span class="badge badge-blue">no mês atual</span></div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value text-green">R$37.200</div>
+          <div class="kpi-label">Economia acumulada</div>
+          <div style="margin-top:8px;"><span class="badge badge-green">últimos 3 meses</span></div>
+        </div>
+      </div>
+
+      <div class="alert alert-green mb-16">✅ Plano protegido — sinistralidade 16pp abaixo da linha de risco de reajuste.</div>
+      <div class="alert alert-yellow mb-24">⚠ 2 solicitações de reembolso em análise aguardando documentação adicional.</div>
+
+      <div class="card mb-24">
+        <div class="section-title mb-16">Evolução da Sinistralidade — Últimos 6 meses</div>
+        <div class="bar-chart" style="height:100px;">
+          <div class="bar-col"><div class="bar-value" style="color:#ef4444;">84%</div><div class="bar" style="height:100%;background:#ef4444;opacity:0.8;"></div><div class="bar-label">Out</div></div>
+          <div class="bar-col"><div class="bar-value" style="color:#ef4444;">82%</div><div class="bar" style="height:97%;background:#ef4444;opacity:0.75;"></div><div class="bar-label">Nov</div></div>
+          <div class="bar-col"><div class="bar-value" style="color:#fbbf24;">79%</div><div class="bar" style="height:94%;background:#fbbf24;opacity:0.8;"></div><div class="bar-label">Dez</div></div>
+          <div class="bar-col"><div class="bar-value" style="color:#fbbf24;">75%</div><div class="bar" style="height:89%;background:#fbbf24;opacity:0.8;"></div><div class="bar-label">Jan</div></div>
+          <div class="bar-col"><div class="bar-value text-green">71%</div><div class="bar" style="height:84%;background:#10b981;opacity:0.8;"></div><div class="bar-label">Fev</div></div>
+          <div class="bar-col"><div class="bar-value text-green">68%</div><div class="bar" style="height:81%;background:#10b981;"></div><div class="bar-label">Mar</div></div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" onclick="showPanel('cfo-auditorias')">🔍 Ver auditorias bloqueadas →</button>
+      </div>
+      <div class="panel" id="cfo-auditorias">
+      <div class="flex items-center justify-between mb-24">
+        <div>
+          <h2 class="mb-8 text-white">Auditorias Bloqueadas</h2>
+          <p class="text-muted">Março 2026 · TechSol Soluções Ltda · 7 ocorrências interceptadas</p>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="showPanel('cfo-dashboard')">← Dashboard</button>
+      </div>
+
+      <div class="card mb-24">
+        <table>
+          <thead>
+            <tr>
+              <th>Beneficiário</th>
+              <th>Tipo de Fraude</th>
+              <th>Clínica</th>
+              <th>Data</th>
+              <th>Valor Bloqueado</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Carlos Mendes</strong></td>
+              <td>Compartilhamento de carteirinha</td>
+              <td>Clínica Norte</td>
+              <td>03/03/2026</td>
+              <td style="color:#fbbf24;font-weight:700;">R$1.800</td>
+              <td><span class="badge badge-red">Bloqueado ✗</span></td>
+            </tr>
+            <tr>
+              <td><strong>Marcos Lima</strong></td>
+              <td>Reembolso sem presença confirmada</td>
+              <td>Lab Central</td>
+              <td>07/03/2026</td>
+              <td style="color:#fbbf24;font-weight:700;">R$2.400</td>
+              <td><span class="badge badge-red">Bloqueado ✗</span></td>
+            </tr>
+            <tr>
+              <td><strong>Fernanda Costa</strong></td>
+              <td>Recibo adulterado</td>
+              <td>Clínica Sul</td>
+              <td>12/03/2026</td>
+              <td style="color:#fbbf24;font-weight:700;">R$950</td>
+              <td><span class="badge badge-red">Bloqueado ✗</span></td>
+            </tr>
+            <tr>
+              <td><strong>João Pereira</strong></td>
+              <td>Atendimento sem biometria</td>
+              <td>UPA Leste</td>
+              <td>18/03/2026</td>
+              <td style="color:#fbbf24;font-weight:700;">R$1.200</td>
+              <td><span class="badge badge-red">Bloqueado ✗</span></td>
+            </tr>
+            <tr>
+              <td><strong>Ana Silva</strong></td>
+              <td>Divergência de geolocalização</td>
+              <td>Clínica Oeste</td>
+              <td>22/03/2026</td>
+              <td style="color:#fbbf24;font-weight:700;">R$1.850</td>
+              <td><span class="badge badge-yellow">Em análise</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #334155;display:flex;justify-content:space-between;align-items:center;">
+          <span class="text-muted" style="font-size:13px;">Total interceptado no mês</span>
+          <span style="font-size:20px;font-weight:800;color:#fbbf24;">R$8.200</span>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" onclick="showPanel('cfo-relatorio')">📈 Ver relatório mensal →</button>
+      </div>
+      <div class="panel" id="cfo-relatorio">
+      <div class="flex items-center justify-between mb-24">
+        <div>
+          <h2 class="mb-8 text-white">Relatório Mensal — Março 2026</h2>
+          <p class="text-muted">TechSol Soluções Ltda · Gerado automaticamente pelo Blindagem PME</p>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="showPanel('cfo-auditorias')">← Auditorias</button>
+      </div>
+
+      <div class="card-grid card-grid-2 mb-24" style="gap:24px;">
+        <div class="card">
+          <div class="section-title mb-16" style="color:#ef4444;">Antes do Blindagem PME</div>
+          <div style="font-size:13px;line-height:2.2;color:#94a3b8;">
+            <div>📊 Sinistralidade: <strong style="color:#ef4444;">84%</strong></div>
+            <div>💸 Custo mensal do plano: <strong style="color:#f1f5f9;">R$32.640</strong></div>
+            <div>⚠ Fraudes não detectadas: <strong style="color:#ef4444;">estimadas R$12.400/mês</strong></div>
+            <div>📈 Risco de reajuste: <strong style="color:#ef4444;">+20% em 90 dias</strong></div>
+          </div>
+        </div>
+        <div class="card" style="border-color:#10b981;">
+          <div class="section-title mb-16 text-green">Com Blindagem PME</div>
+          <div style="font-size:13px;line-height:2.2;color:#94a3b8;">
+            <div>📊 Sinistralidade: <strong class="text-green">68%</strong></div>
+            <div>💸 Custo mensal do plano: <strong style="color:#f1f5f9;">R$27.200</strong></div>
+            <div>✅ Fraudes interceptadas: <strong class="text-green">R$12.400 bloqueados</strong></div>
+            <div>🏆 Risco de reajuste: <strong class="text-green">Eliminado</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-grid card-grid-3 mb-24">
+        <div class="kpi">
+          <div class="kpi-value" style="color:#fbbf24;">R$37.200</div>
+          <div class="kpi-label">Economia no trimestre</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value text-green">312%</div>
+          <div class="kpi-label">ROI sobre custo do serviço</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value" style="color:#60a5fa;">23</div>
+          <div class="kpi-label">Fraudes bloqueadas no período</div>
+        </div>
+      </div>
+
+      <div class="alert alert-green mb-24">🏆 TechSol está entre os 15% de PMEs com menor sinistralidade da operadora em março/2026.</div>
+
+      <button class="btn btn-dark" onclick="showPanel('cfo-dashboard')">← Voltar ao Dashboard</button>
+      </div>
 
       <!-- Corretor panels -->
-      <div class="panel" id="corretor-carteira"><!-- Task 5a --></div>
-      <div class="panel" id="corretor-relatorio"><!-- Task 5b --></div>
-      <div class="panel" id="corretor-simulador"><!-- Task 5c --></div>
+      <div class="panel" id="corretor-carteira">
+      <div class="flex items-center justify-between mb-24">
+        <div>
+          <h2 class="mb-8 text-white">Minha Carteira de Clientes</h2>
+          <p class="text-muted">Olá, <strong class="text-white">Roberto Alves</strong> · Corretor parceiro · 4 clientes ativos</p>
+        </div>
+        <span class="badge badge-purple" style="font-size:13px;padding:6px 14px;">Corretor Parceiro ✓</span>
+      </div>
+
+      <div class="card-grid card-grid-4 mb-24">
+        <div class="kpi">
+          <div class="kpi-value" style="color:#a78bfa;">4</div>
+          <div class="kpi-label">Clientes ativos</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value text-green">3</div>
+          <div class="kpi-label">Planos protegidos</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value" style="color:#f87171;">1</div>
+          <div class="kpi-label">Em risco</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value" style="color:#fbbf24;">R$78k</div>
+          <div class="kpi-label">Economia gerada (trim.)</div>
+        </div>
+      </div>
+
+      <div class="card mb-24">
+        <table>
+          <thead>
+            <tr><th>Empresa</th><th>Vidas</th><th>Sinistralidade</th><th>Fraudes bloq.</th><th>Economia/mês</th><th>Status</th><th>Ação</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>TechSol Soluções Ltda</strong></td><td>48</td>
+              <td style="color:#10b981;font-weight:700;">68%</td><td>7</td>
+              <td style="font-weight:700;color:#fbbf24;">R$12.400</td>
+              <td><span class="badge badge-green">Protegido ✓</span></td>
+              <td><button class="btn btn-sm btn-primary" onclick="showPanel('corretor-relatorio','techsol')">Ver relatório</button></td>
+            </tr>
+            <tr>
+              <td><strong>Alfa Comércio S.A.</strong></td><td>62</td>
+              <td style="color:#10b981;font-weight:700;">71%</td><td>12</td>
+              <td style="font-weight:700;color:#fbbf24;">R$18.600</td>
+              <td><span class="badge badge-green">Protegido ✓</span></td>
+              <td><button class="btn btn-sm btn-outline" onclick="showPanel('corretor-relatorio','alfa')">Ver relatório</button></td>
+            </tr>
+            <tr>
+              <td><strong>Beta Serviços ME</strong></td><td>31</td>
+              <td style="color:#10b981;font-weight:700;">69%</td><td>4</td>
+              <td style="font-weight:700;color:#fbbf24;">R$7.200</td>
+              <td><span class="badge badge-green">Protegido ✓</span></td>
+              <td><button class="btn btn-sm btn-outline" onclick="showPanel('corretor-relatorio','beta')">Ver relatório</button></td>
+            </tr>
+            <tr>
+              <td><strong>Gama Indústria Ltda</strong></td><td>55</td>
+              <td style="color:#f87171;font-weight:700;">83%</td><td>0</td>
+              <td style="font-weight:700;color:#64748b;">—</td>
+              <td><span class="badge badge-red">Em risco ⚠</span></td>
+              <td><button class="btn btn-sm btn-gold" onclick="showPanel('corretor-simulador')">Gerar proposta</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-yellow">⚠ <strong>Gama Indústria Ltda</strong> está com sinistralidade de 83% e risco de reajuste de +20% em 60 dias.</div>
+      </div>
+      <div class="panel" id="corretor-relatorio">
+      <div class="flex items-center justify-between mb-24">
+        <div>
+          <h2 class="mb-8 text-white">Relatório de Resultados</h2>
+          <p id="rel-titulo" class="text-muted"><strong class="text-white">TechSol Soluções Ltda</strong> · 48 vidas · Preparado por Roberto Alves · Março 2026</p>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="showPanel('corretor-carteira')">← Carteira</button>
+      </div>
+
+      <div class="card-grid card-grid-3 mb-24">
+        <div class="kpi">
+          <div id="rel-reducao-pp" class="kpi-value text-green">-16pp</div>
+          <div class="kpi-label">Redução na sinistralidade</div>
+          <div id="rel-reducao-detalhe" style="margin-top:8px;font-size:12px;color:#64748b;">84% → 68%</div>
+        </div>
+        <div class="kpi">
+          <div id="rel-economia" class="kpi-value" style="color:#fbbf24;">R$37.200</div>
+          <div class="kpi-label">Economia no trimestre</div>
+          <div style="margin-top:8px;"><span id="rel-roi" class="badge badge-green">ROI de 312%</span></div>
+        </div>
+        <div class="kpi">
+          <div id="rel-fraudes" class="kpi-value" style="color:#60a5fa;">23</div>
+          <div class="kpi-label">Fraudes interceptadas</div>
+        </div>
+      </div>
+
+      <div class="card mb-24">
+        <div class="section-title mb-16">Evolução da Sinistralidade — Últimos 6 meses</div>
+        <svg id="rel-chart-svg" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:120px;">
+          <line x1="0" y1="20" x2="600" y2="20" stroke="#334155" stroke-width="1"/>
+          <line x1="0" y1="50" x2="600" y2="50" stroke="#334155" stroke-width="1"/>
+          <line x1="0" y1="80" x2="600" y2="80" stroke="#334155" stroke-width="1"/>
+          <line x1="0" y1="65" x2="600" y2="65" stroke="#10b981" stroke-width="1" stroke-dasharray="6,4"/>
+          <text x="4" y="62" font-size="10" fill="#10b981">Meta 70%</text>
+          <polyline id="rel-chart-line" points="50,20 150,28 250,37 350,50 450,62 550,71" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linejoin="round"/>
+          <circle class="rel-chart-dot" cx="50"  cy="20" r="5" fill="#ef4444"/>
+          <circle class="rel-chart-dot" cx="150" cy="28" r="5" fill="#ef4444"/>
+          <circle class="rel-chart-dot" cx="250" cy="37" r="5" fill="#fbbf24"/>
+          <circle class="rel-chart-dot" cx="350" cy="50" r="5" fill="#fbbf24"/>
+          <circle class="rel-chart-dot" cx="450" cy="62" r="5" fill="#10b981"/>
+          <circle class="rel-chart-dot" cx="550" cy="71" r="5" fill="#10b981"/>
+          <text x="38"  y="110" font-size="10" fill="#64748b">Out</text>
+          <text x="138" y="110" font-size="10" fill="#64748b">Nov</text>
+          <text x="238" y="110" font-size="10" fill="#64748b">Dez</text>
+          <text x="338" y="110" font-size="10" fill="#64748b">Jan</text>
+          <text x="438" y="110" font-size="10" fill="#64748b">Fev</text>
+          <text x="535" y="110" font-size="10" fill="#64748b">Mar</text>
+          <text class="rel-chart-val" x="38"  y="16" font-size="10" fill="#ef4444" font-weight="bold">84%</text>
+          <text class="rel-chart-val" x="138" y="24" font-size="10" fill="#ef4444" font-weight="bold">82%</text>
+          <text class="rel-chart-val" x="238" y="33" font-size="10" fill="#b45309" font-weight="bold">79%</text>
+          <text class="rel-chart-val" x="338" y="46" font-size="10" fill="#b45309" font-weight="bold">75%</text>
+          <text class="rel-chart-val" x="438" y="58" font-size="10" fill="#10b981" font-weight="bold">71%</text>
+          <text class="rel-chart-val" x="532" y="67" font-size="10" fill="#10b981" font-weight="bold">68%</text>
+        </svg>
+      </div>
+
+      <div id="rel-alert" class="alert alert-green mb-24">✅ Este relatório pode ser compartilhado com o CFO da TechSol — economia de R$37.200 em 3 meses.</div>
+      <button class="btn btn-outline" onclick="showPanel('corretor-carteira')">← Carteira</button>
+      </div>
+      <div class="panel" id="corretor-simulador">
+      <div class="mb-24">
+        <h2 class="mb-8 text-white">Simulador de ROI</h2>
+        <p class="text-muted">Mostre ao prospect quanto pode economizar com o Blindagem PME</p>
+      </div>
+
+      <div class="card-grid card-grid-2 mb-24" style="gap:24px;">
+        <div class="card">
+          <h3 class="mb-16 text-white">Dados do Prospect</h3>
+
+          <div class="mb-16">
+            <label style="display:block;font-size:13px;font-weight:600;color:#94a3b8;margin-bottom:8px;">
+              Número de Vidas: <span id="vidas-val" style="color:#10b981;">50</span>
+            </label>
+            <input id="slider-vidas" type="range" min="30" max="99" value="50" oninput="calcROI()"
+              style="width:100%;accent-color:#10b981;cursor:pointer;height:6px;">
+            <div class="flex justify-between" style="font-size:11px;color:#64748b;margin-top:4px;">
+              <span>30 vidas</span><span>99 vidas</span>
+            </div>
+          </div>
+
+          <div class="mb-16">
+            <label style="display:block;font-size:13px;font-weight:600;color:#94a3b8;margin-bottom:8px;">
+              Sinistralidade Atual: <span id="sinistralidade-val" style="color:#ef4444;">80%</span>
+            </label>
+            <input id="slider-sinistralidade" type="range" min="70" max="95" value="80" oninput="calcROI()"
+              style="width:100%;accent-color:#ef4444;cursor:pointer;height:6px;">
+            <div class="flex justify-between" style="font-size:11px;color:#64748b;margin-top:4px;">
+              <span>70%</span><span>95%</span>
+            </div>
+          </div>
+
+          <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:14px;font-size:13px;color:#64748b;line-height:1.9;">
+            <div>📋 Prêmio estimado: <strong style="color:#e2e8f0;">R$ <span id="premio-val">34.000</span>/mês</strong></div>
+            <div>🎯 Meta de sinistralidade: <strong style="color:#10b981;">68%</strong></div>
+          </div>
+        </div>
+
+        <div class="card" style="background:linear-gradient(160deg,#0f172a,#065f46);border:none;">
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:rgba(255,255,255,0.5);margin-bottom:20px;">Resultado Estimado</div>
+          <div class="mb-16">
+            <div style="font-size:13px;color:rgba(255,255,255,0.5);">Economia anual estimada</div>
+            <div id="economia-estimada" style="font-size:38px;font-weight:900;color:#fbbf24;line-height:1.1;">R$ 48.000</div>
+          </div>
+          <div class="mb-24">
+            <div style="font-size:13px;color:rgba(255,255,255,0.5);">ROI no primeiro ano</div>
+            <div id="roi-estimado" style="font-size:38px;font-weight:900;color:#10b981;line-height:1.1;">280%</div>
+          </div>
+          <button class="btn btn-gold w-full" style="justify-content:center;" onclick="alert('Proposta enviada! (simulação)')">
+            📧 Enviar Proposta ao Prospect
+          </button>
+        </div>
+      </div>
+
+      <div class="alert alert-green">💡 Clientes com sinistralidade acima de 78% têm maior urgência. Foque no risco de reajuste de prêmio.</div>
+      </div>
 
       <!-- Paciente panel -->
-      <div class="panel" id="paciente-checkin"><!-- Task 6 --></div>
+      <div class="panel" id="paciente-checkin">
+      <div class="mb-24">
+        <h2 class="mb-8 text-white">Check-in Biométrico</h2>
+        <p class="text-muted">Simulação do fluxo mobile do funcionário na clínica</p>
+      </div>
+
+      <div class="paciente-grid">
+
+        <!-- Coluna esquerda: frame mobile -->
+        <div class="mobile-frame-wrap">
+          <div class="mobile-frame">
+            <div class="mobile-status-bar">
+              <span>9:41</span>
+              <span>📶 ●●●●</span>
+            </div>
+
+            <!-- Step 1: Login -->
+            <div id="pac-step-login" class="mobile-content" style="background:#0f172a;">
+              <div style="text-align:center;margin-bottom:28px;margin-top:8px;">
+                <div style="font-size:44px;margin-bottom:6px;">🛡️</div>
+                <div style="font-size:20px;font-weight:900;color:#10b981;">Blindagem PME</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:3px;">Seu plano protegido</div>
+              </div>
+              <div style="margin-bottom:6px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);">Nome</div>
+              <input class="mobile-input" type="text" value="Ana Silva" readonly/>
+              <div style="margin-bottom:6px;margin-top:8px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);">Empresa</div>
+              <input class="mobile-input" type="text" value="TechSol Soluções Ltda" readonly style="opacity:0.6;"/>
+              <div style="margin-top:12px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);border-radius:8px;padding:10px;font-size:11px;color:rgba(255,255,255,0.5);text-align:center;">
+                Plano de saúde protegido pelo Blindagem PME
+              </div>
+              <button class="mobile-btn" onclick="pacStep('checkin')" style="margin-top:20px;">Entrar →</button>
+            </div>
+
+            <!-- Step 2: Checkin -->
+            <div id="pac-step-checkin" class="mobile-content" style="background:#0f172a;display:none;align-items:center;text-align:center;">
+              <div style="font-size:13px;font-weight:700;color:#10b981;margin-bottom:4px;margin-top:4px;">CHECK-IN NA CLÍNICA</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:24px;">📍 Clínica São Lucas · Av. Paulista, 1000</div>
+              <div id="pac-icon" style="font-size:64px;margin-bottom:20px;">🤳</div>
+              <div id="pac-spinner" style="display:none;align-items:center;justify-content:center;margin-bottom:20px;"><div class="spinner"></div></div>
+              <div style="font-size:15px;font-weight:700;color:#f1f5f9;margin-bottom:6px;">Confirmar presença</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:20px;line-height:1.5;">Olhe para a câmera para<br/>confirmar sua identidade</div>
+              <div id="pac-status" style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:16px;min-height:18px;"></div>
+              <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:10px;font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:16px;">
+                <div>👨‍⚕️ Dr. Carlos Mendes — Clínico Geral</div>
+                <div>📅 Hoje · 14h00</div>
+              </div>
+              <button id="pac-btn" class="mobile-btn" onclick="simulateCheckin()">🔒 Iniciar verificação biométrica</button>
+            </div>
+
+            <!-- Step 3: Confirmação -->
+            <div id="pac-step-confirm" class="mobile-content" style="background:#0f172a;display:none;align-items:center;text-align:center;justify-content:center;">
+              <div class="check-anim" style="margin:0 auto 20px;">✓</div>
+              <div style="font-size:20px;font-weight:900;color:#f1f5f9;margin-bottom:6px;">Atendimento validado!</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:24px;line-height:1.6;">Presença confirmada.<br/>Seu plano está protegido.</div>
+              <div style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);border-radius:12px;padding:16px;width:100%;text-align:left;margin-bottom:20px;">
+                <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#10b981;margin-bottom:10px;">Detalhes</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:2;">
+                  <div>🏥 Clínica São Lucas</div>
+                  <div>👨‍⚕️ Dr. Carlos Mendes</div>
+                  <div>🕐 Hoje, 14h32</div>
+                  <div>✅ Biometria confirmada</div>
+                  <div>✅ Geolocalização verificada</div>
+                </div>
+              </div>
+              <button class="mobile-btn" onclick="pacStep('login')" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);">← Recomeçar</button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Coluna direita: como funciona -->
+        <div>
+          <div class="card mb-16">
+            <h3 class="mb-16 text-white">Como funciona para o funcionário</h3>
+            <div style="display:flex;flex-direction:column;gap:20px;">
+              <div style="display:flex;gap:16px;align-items:flex-start;">
+                <div style="width:36px;height:36px;border-radius:50%;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">1</div>
+                <div>
+                  <div style="font-size:14px;font-weight:700;color:#f1f5f9;margin-bottom:4px;">Login no app</div>
+                  <div style="font-size:13px;color:#64748b;line-height:1.5;">O funcionário entra com nome e empresa. Sem senha — a biometria é a chave.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:flex-start;">
+                <div style="width:36px;height:36px;border-radius:50%;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">2</div>
+                <div>
+                  <div style="font-size:14px;font-weight:700;color:#f1f5f9;margin-bottom:4px;">Check-in biométrico</div>
+                  <div style="font-size:13px;color:#64748b;line-height:1.5;">Na clínica, confirma presença com reconhecimento facial + geolocalização. Leva 3 segundos.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:flex-start;">
+                <div style="width:36px;height:36px;border-radius:50%;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">3</div>
+                <div>
+                  <div style="font-size:14px;font-weight:700;color:#f1f5f9;margin-bottom:4px;">Atendimento validado</div>
+                  <div style="font-size:13px;color:#64748b;line-height:1.5;">O atendimento é liberado automaticamente. Sem carteirinha, sem burocracia.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-title mb-12">Impacto para o funcionário</div>
+            <div style="font-size:13px;color:#64748b;line-height:2.2;">
+              <div>✅ Experiência transparente — não muda nada no atendimento</div>
+              <div>✅ Protege a identidade do funcionário contra uso indevido</div>
+              <div>✅ Evita perda de benefício por sinistralidade alta da empresa</div>
+              <div>🛡️ Dado biométrico nunca sai do dispositivo</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </div>
 
     </div><!-- /#content-area -->
 
