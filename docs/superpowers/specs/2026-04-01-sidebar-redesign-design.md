@@ -1,8 +1,14 @@
 # Redesign Sidebar — Blindagem PME Protótipo
 
 **Data:** 2026-04-01
-**Branch:** `redesign/sidebar-profiles`
-**Versão anterior preservada em:** `main`
+**Branch de desenvolvimento:** `redesign/sidebar-profiles`
+**Versão anterior preservada em:** `main` → `https://diegosantos90.github.io/blindagem-pme/`
+**Redesign publicado em:** `/redesign/index.html` → `https://diegosantos90.github.io/blindagem-pme/redesign/`
+
+### Estratégia de deploy
+
+O redesign vive em `/redesign/index.html` (subpasta do repositório). O `index.html` raiz não é alterado.
+Ao final do desenvolvimento, apenas a pasta `/redesign/` é mergeada para `main` — o original continua servindo na raiz.
 
 ---
 
