@@ -975,6 +975,115 @@
 
     // Initialise on load
     document.addEventListener('DOMContentLoaded', () => switchProfile('cfo'));
+
+    /* ── Dados dos clientes (Corretor relatório dinâmico) ── */
+    const _clientes = {
+      techsol: {
+        titulo: '<strong class="text-white">TechSol Soluções Ltda</strong> · 48 vidas · Preparado por Roberto Alves · Março 2026',
+        reducaoPP: '-16pp', reducaoDetalhe: '84% → 68%',
+        economia: 'R$37.200', roi: 'ROI de 312%', fraudes: '23',
+        alert: '✅ Este relatório pode ser compartilhado com o CFO da TechSol — economia de R$37.200 em 3 meses.',
+        points: '50,20 150,28 250,37 350,50 450,62 550,71',
+        labels: ['84%','82%','79%','75%','71%','68%'],
+        colors: ['#ef4444','#ef4444','#b45309','#b45309','#10b981','#10b981'],
+        yPos:   [16, 24, 33, 46, 58, 67]
+      },
+      alfa: {
+        titulo: '<strong class="text-white">Alfa Comércio S.A.</strong> · 62 vidas · Preparado por Roberto Alves · Março 2026',
+        reducaoPP: '-16pp', reducaoDetalhe: '87% → 71%',
+        economia: 'R$54.600', roi: 'ROI de 348%', fraudes: '31',
+        alert: '✅ Este relatório pode ser compartilhado com o CFO da Alfa Comércio — economia de R$54.600 em 3 meses.',
+        points: '50,10 150,18 250,28 350,40 450,52 550,62',
+        labels: ['87%','84%','81%','78%','74%','71%'],
+        colors: ['#ef4444','#ef4444','#b45309','#b45309','#10b981','#10b981'],
+        yPos:   [7, 15, 25, 37, 49, 59]
+      },
+      beta: {
+        titulo: '<strong class="text-white">Beta Serviços ME</strong> · 31 vidas · Preparado por Roberto Alves · Março 2026',
+        reducaoPP: '-14pp', reducaoDetalhe: '83% → 69%',
+        economia: 'R$20.400', roi: 'ROI de 298%', fraudes: '14',
+        alert: '✅ Este relatório pode ser compartilhado com o CFO da Beta Serviços — plano estabilizado abaixo de 70%.',
+        points: '50,18 150,26 250,35 350,48 450,58 550,68',
+        labels: ['83%','81%','78%','75%','72%','69%'],
+        colors: ['#ef4444','#ef4444','#b45309','#b45309','#10b981','#10b981'],
+        yPos:   [15, 23, 32, 45, 55, 65]
+      }
+    };
+
+    function loadRelatorio(key) {
+      const c = _clientes[key] || _clientes.techsol;
+      document.getElementById('rel-titulo').innerHTML = c.titulo;
+      document.getElementById('rel-reducao-pp').textContent = c.reducaoPP;
+      document.getElementById('rel-reducao-detalhe').textContent = c.reducaoDetalhe;
+      document.getElementById('rel-economia').textContent = c.economia;
+      document.getElementById('rel-roi').textContent = c.roi;
+      document.getElementById('rel-fraudes').textContent = c.fraudes;
+      document.getElementById('rel-alert').textContent = c.alert;
+      const svg = document.getElementById('rel-chart-svg');
+      if (svg) {
+        document.getElementById('rel-chart-line').setAttribute('points', c.points);
+        const pts = c.points.split(' ').map(p => p.split(','));
+        svg.querySelectorAll('.rel-chart-dot').forEach((dot, i) => {
+          if (pts[i]) { dot.setAttribute('cx', pts[i][0]); dot.setAttribute('cy', pts[i][1]); dot.setAttribute('fill', c.colors[i]); }
+        });
+        svg.querySelectorAll('.rel-chart-val').forEach((t, i) => {
+          t.textContent = c.labels[i];
+          t.setAttribute('fill', c.colors[i]);
+          t.setAttribute('y', c.yPos[i]);
+        });
+      }
+    }
+
+    function calcROI() {
+      const vidas = parseInt(document.getElementById('slider-vidas').value) || 50;
+      const sinistralidade = parseInt(document.getElementById('slider-sinistralidade').value) || 80;
+      document.getElementById('vidas-val').textContent = vidas;
+      document.getElementById('sinistralidade-val').textContent = sinistralidade + '%';
+      const premioMensal = vidas * 680;
+      document.getElementById('premio-val').textContent = premioMensal.toLocaleString('pt-BR');
+      const economiaAnual = Math.max(0, Math.round(premioMensal * 12 * ((sinistralidade - 68) / 100) * 0.7));
+      const custoAnual = vidas * 15 * 12;
+      const roi = economiaAnual > 0 ? Math.round(((economiaAnual - custoAnual) / custoAnual) * 100) : 0;
+      document.getElementById('economia-estimada').textContent = 'R$ ' + economiaAnual.toLocaleString('pt-BR');
+      document.getElementById('roi-estimado').textContent = Math.max(0, roi) + '%';
+    }
+
+    /* ── Paciente multi-step ── */
+    function pacStep(step) {
+      ['login','checkin','confirm'].forEach(s => {
+        const el = document.getElementById('pac-step-' + s);
+        if (el) el.style.display = 'none';
+      });
+      const target = document.getElementById('pac-step-' + step);
+      if (target) target.style.display = 'flex';
+    }
+
+    function resetCheckin() {
+      pacStep('login');
+      const btn = document.getElementById('pac-btn');
+      if (btn) { btn.disabled = false; btn.textContent = '🔒 Iniciar verificação biométrica'; }
+      const spinner = document.getElementById('pac-spinner');
+      if (spinner) spinner.style.display = 'none';
+      const icon = document.getElementById('pac-icon');
+      if (icon) icon.style.display = 'block';
+      const status = document.getElementById('pac-status');
+      if (status) status.textContent = '';
+    }
+
+    function simulateCheckin() {
+      const btn     = document.getElementById('pac-btn');
+      const spinner = document.getElementById('pac-spinner');
+      const icon    = document.getElementById('pac-icon');
+      const status  = document.getElementById('pac-status');
+      btn.disabled = true;
+      btn.textContent = 'Verificando...';
+      icon.style.display = 'none';
+      spinner.style.display = 'flex';
+      status.textContent = 'Verificando identidade e localização...';
+      setTimeout(() => { status.textContent = 'Reconhecimento facial confirmado ✓'; }, 1200);
+      setTimeout(() => { status.textContent = 'Geolocalização verificada ✓'; }, 2400);
+      setTimeout(() => { pacStep('confirm'); }, 3200);
+    }
   </script>
 
 </body>
