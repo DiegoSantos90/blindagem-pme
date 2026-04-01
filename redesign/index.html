@@ -412,7 +412,111 @@
   </div><!-- /#main-area -->
 
   <script>
-    /* JS goes here in Tasks 3 and 7 */
+    const PROFILES = {
+      cfo: {
+        name: 'Maria Andrade', role: 'CFO · TechSol', avatar: 'MA',
+        badge: '👔 CFO · TechSol',
+        defaultPanel: 'cfo-dashboard',
+        nav: [
+          { id: 'cfo-dashboard',  icon: '📊', label: 'Dashboard'        },
+          { id: 'cfo-auditorias', icon: '🔍', label: 'Auditorias'       },
+          { id: 'cfo-relatorio',  icon: '📈', label: 'Relatório Mensal' }
+        ]
+      },
+      corretor: {
+        name: 'Roberto Alves', role: 'Corretor Parceiro', avatar: 'RA',
+        badge: '🤝 Corretor Parceiro',
+        defaultPanel: 'corretor-carteira',
+        nav: [
+          { id: 'corretor-carteira',  icon: '👥', label: 'Carteira'             },
+          { id: 'corretor-relatorio', icon: '📄', label: 'Relatório do Cliente' },
+          { id: 'corretor-simulador', icon: '🧮', label: 'Simulador ROI'        }
+        ]
+      },
+      paciente: {
+        name: 'Ana Silva', role: 'Funcionária · TechSol', avatar: 'AS',
+        badge: '📱 Funcionário · TechSol',
+        defaultPanel: 'paciente-checkin',
+        nav: [
+          { id: 'paciente-checkin', icon: '📱', label: 'Check-in Biométrico' }
+        ]
+      }
+    };
+
+    const PANEL_LABELS = {
+      'cfo-dashboard':      'Dashboard',
+      'cfo-auditorias':     'Auditorias',
+      'cfo-relatorio':      'Relatório Mensal',
+      'corretor-carteira':  'Carteira de Clientes',
+      'corretor-relatorio': 'Relatório do Cliente',
+      'corretor-simulador': 'Simulador de ROI',
+      'paciente-checkin':   'Check-in Biométrico'
+    };
+
+    let _activeProfile = 'cfo';
+
+    function renderNav(key) {
+      const nav = document.getElementById('sidebar-nav');
+      nav.innerHTML = '';
+      PROFILES[key].nav.forEach(item => {
+        const btn = document.createElement('button');
+        btn.className = 'nav-item';
+        btn.id = 'nav-' + item.id;
+        btn.innerHTML = `<span class="nav-icon">${item.icon}</span>${item.label}`;
+        btn.onclick = () => showPanel(item.id);
+        nav.appendChild(btn);
+      });
+    }
+
+    function showPanel(panelId, clienteKey) {
+      // Hide all panels
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      // Show target
+      const target = document.getElementById(panelId);
+      if (target) {
+        target.classList.add('active');
+        document.getElementById('content-area').scrollTop = 0;
+      }
+      // Update topbar title
+      document.getElementById('page-title').textContent = PANEL_LABELS[panelId] || panelId;
+      // Update active nav item
+      document.querySelectorAll('.nav-item').forEach(btn => {
+        btn.classList.toggle('active', btn.id === 'nav-' + panelId);
+      });
+      // Handle relatorio with specific client
+      if (panelId === 'corretor-relatorio' && clienteKey) {
+        loadRelatorio(clienteKey);
+      }
+      // Trigger calcROI when simulador becomes active
+      if (panelId === 'corretor-simulador') {
+        setTimeout(calcROI, 50);
+      }
+      // Reset checkin state when paciente panel shows
+      if (panelId === 'paciente-checkin') {
+        resetCheckin();
+      }
+    }
+
+    function switchProfile(key) {
+      _activeProfile = key;
+      // Update tab active state
+      ['cfo', 'corretor', 'paciente'].forEach(k => {
+        document.getElementById('tab-' + k).classList.toggle('active', k === key);
+      });
+      // Update nav
+      renderNav(key);
+      // Update user card
+      const p = PROFILES[key];
+      document.getElementById('user-avatar').textContent = p.avatar;
+      document.getElementById('user-name').textContent   = p.name;
+      document.getElementById('user-role').textContent   = p.role;
+      document.getElementById('profile-badge').textContent = p.badge;
+      // Show default panel for this profile
+      showPanel(p.defaultPanel);
+    }
+
+    // Initialise on load
+    document.addEventListener('DOMContentLoaded', () => switchProfile('cfo'));
   </script>
 
 </body>
